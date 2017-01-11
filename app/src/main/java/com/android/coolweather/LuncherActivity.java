@@ -1,13 +1,16 @@
 package com.android.coolweather;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.android.coolweather.core.BaseActivity;
 
-public class LuncherActivity extends AppCompatActivity {
+public class LuncherActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_luncher);
+    public void initView() {
+
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_luncher;
     }
 }
