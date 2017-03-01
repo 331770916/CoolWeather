@@ -13,13 +13,17 @@
         android:supportsRtl="true"
         tools:replace="icon"
         android:theme="@style/AppTheme">
-        <activity android:name=".LuncherActivity">
+        <activity android:name=".LuncherActivity"
+            android:theme="@style/LuncherTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".mvp.ui.main.MainActivity"/>
+
     </application>
 
 </manifest>
