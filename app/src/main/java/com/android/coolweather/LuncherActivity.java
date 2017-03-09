@@ -1,6 +1,7 @@
 package com.android.coolweather;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
@@ -12,9 +13,15 @@ import com.jrummyapps.android.widget.AnimatedSvgView;
 
 public class LuncherActivity extends BaseActivity implements AnimatedSvgView.OnStateChangeListener{
 
+    @Override
+    protected void initWindow() {
+        super.initWindow();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
     @Override
-    public void initView() {
+    protected void initWidget() {
+        super.initWidget();
         AnimatedSvgView  svgView = (AnimatedSvgView) findViewById(R.id.luncher_svgView);
         svgView.postDelayed(new Runnable() {
 
@@ -24,7 +31,6 @@ public class LuncherActivity extends BaseActivity implements AnimatedSvgView.OnS
         }, 1000);
 
         svgView.setOnStateChangeListener(this);
-
     }
 
     @Override

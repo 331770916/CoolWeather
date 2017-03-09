@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:title="@string/nav_menu_account"
+            android:id="@+id/nav_menu_account"
+            android:icon="@drawable/ic_account_circle_black_24dp"/>
+
+        <item
+            android:title="@string/setting"
+            android:id="@+id/nav_menu_settings"
+            android:icon="@drawable/ic_settings_black_24dp"/>
+
+        <item
+            android:title="@string/nav_menu_address"
+            android:id="@+id/nav_menu_address"
+            android:icon="@drawable/ic_pin_drop_black_24dp"/>
+
+        <item
+            android:title="@string/nav_menu_sao"
+            android:id="@+id/navmenu_scan"
+            android:icon="@drawable/ic_scan_black_24dp"/>
+
+    </group>
+
+    <item android:title="Image">
+        <menu>
+            <item
+                android:title="@string/nav_menu_camera"
+                android:id="@+id/nav_menu_camera"
+                android:icon="@drawable/ic_photo_camera_black_24dp"/>
+
+            <item
+                android:title="@string/nav_menu_gralley"
+                android:id="@+id/nav_menu_phone"
+                android:icon="@drawable/ic_photo_black_24dp"/>
+        </menu>
+    </item>
+</menu>

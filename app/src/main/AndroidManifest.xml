@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.ui.main.MainActivity"/>
+        <activity android:name=".mvp.ui.main.MainActivity"
+            android:label="@string/app_title"/>
 
     </application>
 

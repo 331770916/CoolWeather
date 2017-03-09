@@ -8,14 +8,31 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         jackOptions {
             enabled true
         }
-
     }
+
+//    signingConfigs {
+//        release {
+//            try {
+//                storeFile file('coolweathers.jks')
+//                storePassword 'chinese'
+//                keyAlias 'Admin'
+//                keyPassword 'chinese'
+//            } catch (ex) {
+//                throw new InvalidUserDataException(ex.toString())
+//            }
+//        }
+//
+//        debug {
+//            storeFile file('coolweathers.jks')
+//        }
+//    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -39,13 +56,28 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:cardview-v7:25.1.0'
-    compile 'io.reactivex.rxjava2:rxjava:2.0.2'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //rxjava
+    compile 'io.reactivex:rxjava:1.1.9'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+
+
+    // retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    // fast json
+    compile 'com.alibaba:fastjson:1.2.23'
+
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.pnikosis:materialish-progress:1.0'
+    //头像处理
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile files('libs/jackson-all-1.9.2.jar')
     compile 'com.jrummyapps:animated-svg-view:1.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

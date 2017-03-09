@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,10 +11,14 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.coolweather.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,13 @@ import java.util.ArrayList;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+
+    protected RequestManager mImageLoader;
+    private boolean mIsDestroy;
+    private final String mPackageNameUmeng = this.getClass().getName();
+    private Fragment mFragment;
+
+    //权限相关
     private boolean isNeedCheck = true; //判断是否需要检测，防止不停的弹框
     private static final int PERMISSON_REQUESTCODE = 0;
     protected String[] needPermissions = {
@@ -36,10 +46,62 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(getLayoutId());
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        initView();
+        if (initBundle(getIntent().getExtras())) {
+            setContentView(getLayoutId());
 
+            initWindow();
+
+            initWidget();
+            initData();
+
+        } else {
+            finish();
+        }
+
+    }
+
+    protected void initWindow() {
+    }
+
+    protected void initWidget() {
+    }
+
+    protected void initData() {
+    }
+
+    //布局文件
+    public abstract int getLayoutId();
+
+    protected boolean initBundle(Bundle bundle) {
+        return true;
+    }
+
+    protected void addFragment(int frameLayoutId, Fragment fragment) {
+        if (fragment != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            if (fragment.isAdded()) {
+                if (mFragment != null) {
+                    transaction.hide(mFragment).show(fragment);
+                } else {
+                    transaction.show(fragment);
+                }
+            } else {
+                if (mFragment != null) {
+                    transaction.hide(mFragment).add(frameLayoutId, fragment);
+                } else {
+                    transaction.add(frameLayoutId, fragment);
+                }
+            }
+            mFragment = fragment;
+            transaction.commit();
+        }
+    }
+
+
+    public synchronized RequestManager getImageLoader() {
+        if (mImageLoader == null)
+            mImageLoader = Glide.with(this);
+        return mImageLoader;
     }
 
     @Override
@@ -48,6 +110,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (isNeedCheck) {
             checkPermissions(needPermissions);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        mIsDestroy = true;
+        super.onDestroy();
+    }
+
+    public boolean isDestroy() {
+        return mIsDestroy;
     }
 
     /**
@@ -141,9 +213,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //初始化控件
-    public abstract void initView();
 
-    //布局文件
-    public abstract int getLayoutId();
+
 }
