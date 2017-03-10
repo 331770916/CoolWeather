@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="48dp">
+
+    <com.android.coolweather.widget.main.NavigationButton
+        android:id="@+id/historyRadioBtn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/navitem_12"
+        android:paddingRight="@dimen/navitem_12"
+        android:layout_height="wrap_content"/>
+
+    <com.android.coolweather.widget.main.NavigationButton
+        android:id="@+id/channelRadioBtn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/navitem_12"
+        android:paddingRight="@dimen/navitem_12"
+        android:layout_height="wrap_content"/>
+
+    <com.android.coolweather.widget.main.NavigationButton
+        android:id="@+id/moodRadioBtn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/navitem_12"
+        android:paddingRight="@dimen/navitem_12"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
