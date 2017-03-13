@@ -25,6 +25,9 @@
         <activity android:name=".mvp.ui.main.MainActivity"
             android:label="@string/app_title"/>
 
+        <activity android:name=".mvp.ui.search.SearchActivity"
+            android:label="@string/menu_search_title"/>
+
     </application>
 
 </manifest>
