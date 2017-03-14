@@ -15,4 +15,7 @@
 
     <dimen name="history_5">5dp</dimen>
     <dimen name="history_10">10dp</dimen>
+
+    <!--搜索股票-->
+    <dimen name="search_view_inset">5dp</dimen>
 </resources>

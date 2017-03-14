@@ -11,6 +11,8 @@
     <color name="google_green">#34A853</color>
     <color name="list_divider_color">#c8c7cc</color>
 
+    <color name="nomalcolor">#999999</color>
+
     <integer-array name="google_glyph_colors">
         <item>@android:color/white</item>
         <item>@color/google_red</item>
